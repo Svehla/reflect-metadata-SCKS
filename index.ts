@@ -1,13 +1,17 @@
 import * as yup from 'yup'
 
-// Data transformations utils
+// ------------------------------------------------------------
+// --------------- Data transformations utils -----------------
+// ------------------------------------------------------------
 export const mapEntries = <Key extends string | number, V, RetKey extends string | number, RV>(
   fn: (a: [Key, V]) => [RetKey, RV],
   obj: Record<Key, V>
 ) => Object.fromEntries(Object.entries(obj).map(fn as any)) as Record<RetKey, RV>
 
 
-// type-utils 
+// ------------------------------------------------------------
+// ----------------------- type-utils  ------------------------
+// ------------------------------------------------------------
 export type SchemaArr = {
   type: 'array'
   required?: boolean
@@ -18,10 +22,6 @@ export type SchemaObject = {
   type: 'object'
   required?: boolean
   properties: Record<string, Schema>
-  // what about to add required fields?
-  // what about to add nullable as can be null? (not undefined) & required is equal for `undefined`
-  // > https://stackoverflow.com/a/40113571
-  // TODO: rename to required? to be consistent with OPEN-API spec?
   requiredKeys?: string[]
 }
 
@@ -74,7 +74,9 @@ export type InferSchemaType<T extends Schema> = T extends {
 
 
 
-// define schema
+// ------------------------------------------------------------
+// ---------------------- define schema  ----------------------
+// ------------------------------------------------------------
 
 const mySchema = {
   type: 'object' as const,
@@ -85,17 +87,20 @@ const mySchema = {
     },
     key2: {
       type: 'string' as const,
-      required: false,
+      required: false as const,
     },
   },
-  requiredKeys: [],
+  requiredKeys: ['key1' as const, 'key2' as const],
   required: false,
 }
 
 
 type MySchemaType = InferSchemaType<typeof mySchema>
 
-// Runtime validation against the schema
+
+// ------------------------------------------------------------
+// ----------- Runtime validation against the schema ----------
+// ------------------------------------------------------------
 
 export const convertSchemaToYupValidationObject = (schema: Schema): any => {
   switch (schema?.type) {
