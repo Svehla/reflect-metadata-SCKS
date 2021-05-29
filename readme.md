@@ -2,8 +2,10 @@
 
 ## TLDR:
 
+
 Don't a vendor lock yourself with unsupported experimental syntax and
-don't use `reflect-metadata` which forces you to pre-process your code.
+don't use `reflect-metadata` which forces you to pre-process your runtime code.
+
 Use raw vanilla Javascript and infer Typescript data types directly from the Javascript definitions.
 
 
@@ -29,7 +31,7 @@ class userModel
 }
 ```
 
-[Check full working example of the good code on Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
+[Check full working example of the good code in the Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
 
 [Or whole Github Repo](https://github.com/Svehla/dont-use-reflex-metadata/blob/master/index.ts)
 
@@ -39,7 +41,7 @@ First of all, we need to know [Typescript decorators API](https://www.typescript
 
 ### Decorators
 
-Decorators are syntax-sugar that give us the option to write quasi `high-order-function` to enhance `classes`, `methods`, and `attributes`.
+Decorators are syntax-sugar that give us the option to write quasi `high-order-function` to enhance `classes`, `methods`, and `properties`.
 
 ```typescript
 class ExampleClass {
@@ -49,11 +51,12 @@ class ExampleClass {
 }
 ```
 
-You man know this similar code from languages like `C#`, `Java` or `Python`.
+You man know similar pattern from languages like `C#`, `Java` or `Python`.
 
 If you compare Typescript decorators with the [Python implementation](https://www.python.org/dev/peps/pep-0318/),
 you can find the difference that Typescript implementation does not works for basic `functions` of `arrow functions`.
-Now the decorators are only Typescript specific but similar functionality is already [in the tc39 Javascript proposal at stage 2](https://github.com/tc39/proposal-decorators).
+At the top of it, the decorators are only Typescript specific feature.
+But we have to pay attention because similar functionality is already [in the tc39 Javascript proposal at stage 2](https://github.com/tc39/proposal-decorators).
 
 ### reflex-metadata
 
@@ -71,12 +74,12 @@ If you don't fully understand who will use it in the real world, you can check s
 
 - [type-orm](https://typeorm.io/#/) (~24K Github stars)
 - [type-graphql](https://typegraphql.com/) (~6K Github stars)
-- [nest](https://github.com/nestjs/nest) (~37K Github Stars)
+- [nest.js](https://github.com/nestjs/nest) (~37K Github Stars)
 - and so on...
 
 If you know these libraries you know what I'm talking about.
-Thanks to the `reflex-metadata` library you can "hack" into Typescript compiler and get the static type descriptor
-from the compile-time into your Javascript runtime.
+Thanks to the `reflex-metadata` library you can "hack" into Typescript compiler and get the static
+type descriptor from the compile-time into your Javascript runtime.
 
 For example, you may have code like:
 
@@ -88,8 +91,9 @@ class Recipe {
 }
 ```
 
-The `reflex-metadata` library enables to write decorators that will read metadata from the static type
+The `reflex-metadata` library enables us to write decorators that will read metadata from the static type
 and these metadata may affect your Javascript runtime code.
+You may imagine this metadata as an information that field title is `string`.
 
 So that's pretty handy syntax sugar!
 
@@ -113,7 +117,7 @@ export class User {
 ```
 
 As you may see, there is no Javascript runtime information about the data types of columns.
-So that's magic because as you man know raw Typescript compiler should transpile code into this:
+So that's magic because as you man know basic Typescript compiler should transpile code into this:
 
 ```javascript
 @Entity()
@@ -127,7 +131,7 @@ export class User {
 ```
 
 Default Typescript compiler removes information about data types. Thanks to `reflex-metadata` this code is still working
-because it transfers static types into runtime metadata descriptor which can be read in the Javascript runtime.
+because it transfers information about static types into runtime metadata descriptor which can be read in the Javascript runtime.
 
 ### And where is the problem?
 
