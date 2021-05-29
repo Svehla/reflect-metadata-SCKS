@@ -3,8 +3,8 @@
 ## TLDR:
 
 Don't a vendor lock yourself with unsupported experimental syntax and
-don't use `reflect-metadata` which forces you to pre-process your code and vendor lock code for the future changes.
-Use write raw vanilla Javascript and infer Typescript data types directly from the Javascript definitions.
+don't use `reflect-metadata` which forces you to pre-process your code with unsupported syntax.
+Use raw vanilla Javascript and infer Typescript data types directly from the Javascript definitions.
 
 
 ### Good code
@@ -16,7 +16,7 @@ const userModel = model({
 })
 ```
 
-### Good code
+### Bad code
 
 ```typescript
 @Model()
@@ -29,9 +29,9 @@ class userModel
 }
 ```
 
-[Check full working example code on Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
+[Check full working example of the good code on Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
 
-[Or raw source code on the github](https://github.com/Svehla/dont-use-reflex-metadata/blob/master/index.ts)
+[Or whole Github Repo](https://github.com/Svehla/dont-use-reflex-metadata/blob/master/index.ts)
 
 ## And... What the `reflex-metadata` is?
 
@@ -156,7 +156,7 @@ you can check other articles
 - [World-first Static time RegEx engine with O(0) time complexity](https://dev.to/svehla/world-first-static-time-regex-engine-with-o-0-time-complexity-4k4e)
 - [and so on...](https://dev.to/svehla/)
 
-### Reflex-metadata vs single source of truth (SSOT) and don't repeat yourself (DRY) pattern?
+### Reflex-metadata vs single source of truth (SSOT)?
 
 If you use libraries like `typed-graphql` or `type-orm` you can find that `reflex-metadata` is only
 working for basic data types like: `number`, `string`, and `boolean`.
@@ -165,7 +165,7 @@ If you want to refer to another data type, you have to create a real Javascript 
 There are some real-world examples where you can see that the code is "duplicate" and you have to define
 real Javascript reference and Static type reference so you duplicate the same information on two places
 
-** type-orm example **
+*type-orm example*
 
 ```typescript
 @Entity()
@@ -179,7 +179,7 @@ export class PhotoMetadata {
 ```
 
 
-** type-graphql example **
+*type-graphql example*
 
 ```typescript
 @InputType()
@@ -193,7 +193,7 @@ class NewRecipeInput {
 }
 ```
 
-Our target is to have 1 SSOT which describe our data types and give us 
+Our target is to have SSOT which describe our data types and give us 
 - Infer static types
 - Option to have runtime Javascript validations
 - Code should be typed-saved
@@ -228,8 +228,9 @@ const mySchema = {
   required: false,
 }
 
-type MySchemaType = InferSchemaType<typeof mySchema>
 ```
+
+The only Typescript-specific code is there `as const` notation, which defines that the data type should have been the same as the value.
 
 We're able to write data type for schema like this:
 
@@ -264,9 +265,8 @@ export type Schema = SchemaArr | SchemaObject | SchemaString | SchemaNumber | Sc
 
 ```
 
-The only Typescript-specific code is there `as const` notation, which defines that the data type should have been the same as the value.
 
-### Let's go deeper! Infer data-type!
+### Let's go deeper! Infer schema type!
 
 Now we can create Generic which extracts data type from the schema descriptor.
 
@@ -306,18 +306,19 @@ export type InferSchemaType<T extends Schema> = T extends {
 
 *For simplicity I'll not describe how was the generic crafted. if you want to know more, just mention me below in the comment section.*
 
-This generic is kinda more complicated but if we look at the result, we can see that it works perfectly.
+This generic is kinda more complicated but if we look at the result, we can see that the generics works perfectly.
 
 ```typescript
 type MySchemaType = InferSchemaType<typeof mySchema>
 ```
+
+[you can check full source code here](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
 
 This philosophic access to defining schemas and get types is very strong because it enables us to just write simple
 raw Javascript and 100% of static types are inferred via a few generics and functions.
 
 Thanks to omitting experimental Typescript API and returning into good old Javascript we don't vendor-lock our code into Typescript compiler.
 
-[you can check full source code here](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
 
 #### validators
 
@@ -372,7 +373,7 @@ If you want to see more about how to add proper types for HOC or Pipe functions 
 ## Who should care about this article the most?
 
 The problem is not with the regular programmers who just install npm libraries.
-The problem is with the authors of libraries who think that this new reflex API with experimental decorators will
+The problem is with the authors of libraries who think that this new `reflex-metadata` API with experimental decorators will.
 
 ## Is there some real-world example library?
 
@@ -380,7 +381,7 @@ I picked one library which uses the same philosophy as we describe. Its [Typed e
 
 if you look for the API you can find that users of this library don't want to write any type and 
 
-if you check it in detail you find that if you use this 
+TODO: dopsat sem víc
 
 ## Its' all
 
