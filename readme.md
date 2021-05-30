@@ -1,4 +1,3 @@
-# Why reflex-metadata s*cks
 
 ## TLDR:
 
@@ -31,9 +30,11 @@ class userModel
 }
 ```
 
-[Check full working example of the good code in the Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
+[Check full working example of the good code in the Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/PTAEFpK6dv4YmBYAUCCSqgCIEMAXPUAgJzwDsBnAMwHtSBbQgSzutAFcCWAbKzFihoMQseImQ0AUwAeABwYFQAY3ZVlzeQFEKZFtIEBeUAB4A0tICeoOQWkUAJgI2kWFAOagAPqAqdGACNpUgAaUAA1cIAlaQJLGzsHZ1BXdy9ffyCQmIiAPgAKNFBQGgoALlACvEqAbQTwiIBdAEpQIzzQWtj461ym0OLQOkCAK0rYtVJHCz7IvLQ2jtAAeTHpFQIAOhpSOkZdfUMCtdGN7YcjqgKR0ZatrQKy0DwBSisWttfQSYYZnoaP3yaBB6DAkghkNgInBUMgJCs8mk4G4fAEgjhMIxcJxQhkCiUCKRoAAyioABbSZgAQVIpHaoAA3kMCIjpJUAOR4Ol4KwcoakaQAR04LEFjgA-JVAnQ6LxpJQhix7IwqJUyZTmGgAL6guSKUjKVnEjVUvCnc4M5moErG9mgDm3c78m2gQUisXSSXS2XyxWu+R7JGGgxqn4bP6mNKecKm5gLVC61BoO2kilmgBCvoVFCtLLZnJlcpzLpK7tF4qloCLfooOpTbLTmrwJP0njzrrtnOjHlLbuFFa9VZrOfrqFTcbwADkAsF6SZrbaCw6snO++XPd7q9n-Un8QajY3JwzJ7T6b5JxbNj4m2bW252xf08wZ9lz7fmFni-6G8SpywVGkABZEIPGkUwABVwgAVXCCCAAYGQg0AADJQFg0AIIARitLpzFAdxQAAa2sOgaEw+CmkqBD6iaUBtU6ExsNBVMgLwEiVnkHh2DwXhIJiAdN1sWR7CcAQR0oRjww9cVhNElIyE4aRQAlTDQGom9OCcaQaHcL1QD1AlDSJZSAEkKBoEJJwgtlILk5IBEnKTkKSMSmXzJFOSdTY+0DOhgx4QxKncSz6WgscSlUjAAAECCocB9XOBK6QYIZGTwgjcxIqwyPQqjQHM0LrNs6DaM6JMSg01yUnSrsHW5cg+QAbgIlUw3eeihiisBYvixLNmSvZSCGEo2I4ri2AoXjTEKqznzwGykUg2oOWVKkqA5Jo8lqAZMJWjdxU2hNKrU6qBFq5cOQkigOU611utAXqEoUJKQiGkbQDG6ROO4qa+OuuD9sEw6tqGKqRIcpkTO7NtezuyLQBiuLnqRAa3tS11RvY76Jp4vie0BjkDq9I6wdOiG3IuzyV1nEJboqlTEZ65H+oIQaMZKLHxt+6bVxyPaieBknQddSoKGkAA3EJQRlsFsVxBX4CxCFQEpXhg1AUYqHYatRV4RwQgEKFlcV02ldQNRqGUHtFuUkwCiWToCkXaGHR7W7vktjRBldYnHEqGheKoZTPfUAgdRaUEveUCh2BnXheDwQJ5QZOyzqhv3Kg6hjqmolpKn-QCQNIMDTBWRhlX4h0-Y5PJwnSzOSFIJT6MYp2Xa2Tu8B9sshf9puW9Dq2I6jsPhnWTZbdTqDChqTDHaqF26sdCeCA9gRo570A-IC0Ms63xvA-4EON7Dn3tUj5M5bNm+UGvuFQAN3TxdSeaShxE3b9v0erdARgrGPCYWOFB46J2TtIG4q9bbOyVP3YBoCk7ygKDbNkDsWhbymowe0KCkQOwjpfWWaBo5-wAfNaIeAADuHYlzUxXmcHyLxT5Wy3jvEIgUwwuxKNlLClROGc2XnzUg69VBnw+r3GSXpKiKRPiI5hH1tRby4dYAATLwsRrsOTu0YbI726jD5BxkZveRW8FECj7gHAx2ijGJhYkeeatscImFmqQYqS07S5X-k5X8ylXHSGUQyZxvjTDuPIp4shlCExoCAA)
 
 [Or whole Github Repo](https://github.com/Svehla/dont-use-reflex-metadata/blob/master/index.ts)
+
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hd56uijwwrw0lz8ez21i.png)
 
 ## And... what is `reflex-metadata`?
 
@@ -235,8 +236,7 @@ const mySchema = {
       required: false as const,
     },
   },
-  requiredKeys: ['key1' as const, 'key2' as const],
-  required: false,
+  required: false as const,
 }
 ```
 
@@ -255,7 +255,6 @@ export type SchemaObject = {
   type: 'object'
   required?: boolean
   properties: Record<string, Schema>
-  requiredKeys?: string[]
 }
 
 type SchemaBoolean = {
@@ -283,22 +282,14 @@ Now we can create a generic which extracts the data type from the schema definit
 ```Typescript
 type NiceMerge<T, U, T0 = T & U, T1 = { [K in keyof T0]: T0[K] }> = T1
 
-type MakeOptional<T, Required extends boolean> = Required extends true ? T | undefined : T
+type MakeOptional<T, Required extends boolean> = Required extends true ? T : T | undefined 
 
 export type InferSchemaType<T extends Schema> = T extends {
   type: 'object'
   properties: infer U
-  requiredKeys?: any
 }
-  ? T['requiredKeys'] extends string[]
-    ? NiceMerge<
-        // @ts-expect-error
-        { [K in keyof Omit<U, T['requiredKeys'][number]>]?: InferSchemaType<U[K]> },
-        // @ts-expect-error
-        { [K in T['requiredKeys'][number]]: InferSchemaType<U[K]> }
-      >
-    : // @ts-expect-error
-      { [K in keyof U]: InferSchemaType<U[K]> }
+  ? // @ts-expect-error
+  { [K in keyof U]: InferSchemaType<U[K]> }
   : T extends { type: 'array'; items: any }
   ? // @ts-expect-error
     MakeOptional<InferSchemaType<T['items']>[], T['required']>
@@ -312,6 +303,7 @@ export type InferSchemaType<T extends Schema> = T extends {
   ? // @ts-expect-error
     MakeOptional<number, T['required']>
   : never
+
 ```
 
 *For simplicity I will not be describing how the `InferSchemaType<T>` generic was crafted. If you want to know more, just mention me below in the comment section.*
@@ -322,7 +314,14 @@ This generic is kinda more complicated but if we look at the result we can see t
 type MySchemaType = InferSchemaType<typeof mySchema>
 ```
 
-[you can check full source code here](https://www.typescriptlang.org/play?target=6&module=6#code/LAKA9GAEAiCGAutLwE6wHYGcBmB7FAtggJa5aQCu8xANpqAKYAeADvvJAMZmYdEsBRdKmINMkALyQAPAGkGAT0jN4DdABNxvFMXQBzSAB9I6CgQBGDFABpIANVsAlBvHlKVazZG26Dx0xZWTnYAfAAUoJCQ2OgAXJBhsPEA2m62dgC6AJSSIZDJzq6KwRnWkZC45gBW8c7cKOpyxfYhoDkSeQDy1Qyc8AB02Ci4BEIiYmHdVb0DauOYYZVVWf38YTGQsOIYClk5W5B1+I2FaYehoJfgUPAKLAwAtFS04oys7Mh3DJAAypwAFgwiABBFAoSSQADe5Vu93iAHJYGDYAp4eUUAwAI4UYgY9QAfni5lwuBoDAw5WIqgImHif0BRFAAF8rsw2CgOLDvvSgbApjMIdCQFEuQiljM0cLIBjsbiGASiSSyRSpSxhvcOaJaYdesdpD59LYeURWlKIJAAO7-BCbYlUZC4TbqdTSrE4vHRUQ0TT48rmq022B2zmO2DOkwUGg0INkzbiTgYSCWCNR-EJdC4DgUDQMbC6eU5ABkrtlHuI4jdsBo0XwkAABtn1Ln8+o636oHl-vB4CxaRBeLBOABrXAANys2BouAt-W4BDAsDAABYAAwARjXAGYAKwAdjX7cgABVOtBOvEMehYARvvBHTL3fK03ek99uFhy6phJaqf9IJ0AAUBAAOQeYEAIASW8e5OF9KUHzldQ3EwQlvBEfRkgyZkri5X4AV5AAhJVyXQQUYS+BFiVJEjJSiBC8VQqjlXQbCQFw41YB+dCDCkIURQoyB4QNPRaJLR8FSTYiVRZNivjwhlYGAsxLHBXjyLhQSAhU0T6KfRVqOk1l3g5T57nk3kIQ40FwWMDj+T6IxzKILidH0RyOKUwIbKc2AiIMliQFAXDgOITgGAAWSsPQGGkI9bAAVVsI8VwhI9IGLRLjzXQV8lkSBdEgIdFFwbBjxXDJ4mS1IMkgJk8ikI8D0C2SzPC2Ais6FhqDIKtYqcN1EOUJgvy8JiSPqnVS3lIaRvEVAKG+NM0uMRtm3QabKqM9lOTkiD0GwKwOKPL5YpmzxxA4ia0o8DRxD40yGDFHo+lEtVcA1agxHiXQDvBeL0QGvFkNQnZWKiJbknhXSkMUTB4Rqm6vGEzDynByAQrCyKUGi6RUaifHzQAAXgTAHjZGYybBfA8fxqFcvy0iioUEr-wIKlpEyo9Ieh5D4eSLSrAyEIMlQvbfqOk74uqvImTKKVaaiImSbJ1gKasYYUBp-HIXpgquahwH5V5jJ+eUwWKsgMXDvwohjvuDnpdqrXTVp+IldJ8m+kpjWtZ11IGcK4rSvii2rZQCX7al2QhadqVKrO266dFQSkTQVEAG58upbUdljtH3ZVmD4G96n5cgNqOq60grxoaQw4jmL9apIE4aFzCku5w31Hhl3IHjxG7oeyipPQeE88gNMC894v1dL2mK4YTrupr6QxowDuDam7uhfKfvhvOpOBKE7ix5k-OoGJj3Va92fNbLhel+r3rhI36Ge9348E68HXk-hAWUFPuUSeF9lbTxLnfee7VF5Vx6rXf+r8u7vzjiYBg4475XFAOaB42CHhNjzOtbwNtYBXHfLwSABAFAcTIlKX+4oXpxi4DweAcsohvQ+lqeI90ohMzXJwrWv9-5jwOKQ5hWtobxHmt8YRTCWH41lnjJmAAmPhZd+IaWPq5ESDCRGyNpuI6IVZMAMF0bVWR8j4Jd2QikUoAMt7xGwIY4xrEMEtW+OFShRC7bfCkPXTxJ0uQswoZdIAA)
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u0ba0xpc62nphgbd0u29.png)
+
+
+Or we can create builder util functions which build JSON with the nicer API.
+
+![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z34pa7syb1nj1k3h1w2r.png)
+
+[you can check full source code here](https://www.typescriptlang.org/play?target=6&module=6#code/PTAEFpK6dv4YmBYAUCCSqgCIEMAXPUAgJzwDsBnAMwHtSBbQgSzutAFcCWAbKzFihoMQseImQ0AUwAeABwYFQAY3ZVlzeQFEKZFtIEBeUAB4A0tICeoOQWkUAJgI2kWFAOagAPqAqdGACNpUgAaUAA1cIAlaQJLGzsHZ1BXdy9ffyCQmIiAPgAKNFBQGgoALlACvEqAbQTwiIBdAEpQIzzQWtj461ym0OLQOkCAK0rYtVJHCz7IvLQ2jtAAeTHpFQIAOhpSOkZdfUMCtdGN7YcjqgKR0ZatrQKy0DwBSisWttfQSYYZnoaP3yaBB6DAkghkNgInBUMgJCs8mk4G4fAEgjhMIxcJxQhkCiUCKRoAAyioABbSZgAQVIpHaoAA3kMCIjpJUAOR4Ol4KwcoakaQAR04LEFjgA-JVAnQ6LxpJQhix7IwqJUyZTmGgAL6guSKUjKVnEjVUvCnc4M5moErG9mgDm3c78m2gQUisXSSXS2XyxWu+R7JGGgxqn4bP6mNKecKm5gLVC61BoO2kilmgBCvoVFCtLLZnJlcpzLpK7tF4qloCLfooOpTbLTmrwJP0njzrrtnOjHlLbuFFa9VZrOfrqFTcbwADkAsF6SZrbaCw6snO++XPd7q9n-Un8QajY3JwzJ7T6b5JxbNj4m2bW252xf08wZ9lz7fmFni-6G8SpywVGkABZEIPGkUwABVwgAVXCCCAAYGQg0AADJQFg0AIIARitLpzFAdxQAAa2sOgaEw+CmkqBD6iaUBtU6ExsNBVMgLwEiVnkHh2DwXhIJiAdN1sWR7CcAQR0oRjww9cVhNElIyE4aRQAlTDQGom9OCcaQaHcL1QD1AlDSJZSAEkKBoEJJwgtlILk5IBEnKTkKSMSmXzJFOSdTY+0DOhgx4QxKncSz6WgscSlUjAAAECCocB9XOBK6QYIZGTwgjcxIqwyPQqjQHM0LrNs6DaM6JMSg01yUnSrsHW5cg+QAbgIlUw3eeihiisBYvixLNmSvZSCGEo2I4ri2AoXjTEKqznzwGykUg2oOWVKkqA5Jo8lqAZMJWjdxU2hNKrU6qBFq5cOQkigOU611utAXqEoUJKQiGkbQDG6ROO4qa+OuuD9sEw6tqGKqRIcpkTO7NtezuyLQBiuLnqRAa3tS11RvY76Jp4vie0BjkDq9I6wdOiG3IuzyV1nEJboqlTEZ65H+oIQaMZKLHxt+6bVxyPaieBknQddSoKGkAA3EJQRlsFsVxBX4CxCFQEpXhg1AUYqHYatRV4RwQgEKFlcV02ldQNRqGUHtFuUkwCiWToCkXaGHR7W7vktjRBldYnHEqGheKoZTPfUAgdRaUEveUCh2BnXheDwQJ5QZOyzqhv3Kg6hjqmolpKn-QCQNIMDTBWRhlX4h0-Y5PJwnSzOSFIJT6MYp2Xa2Tu8B9sshf9puW9Dq2I6jsPhnWTZbdTqDChqTDHaqF26sdCeCA9gRo570A-IC0Ms63xvA-4EON7Dn3tUj5M5bNm+UGvuFQAN3TxdSeaShxE3b9v0erdARgrGPCYWOFB46J2TtIG4q9bbOyVP3YBoCk7ygKDbNkDsWhbymowe0KCkQOwjpfWWaBo5-wAfNaIeAADuHYlzUxXmcHyLxT5Wy3jvEIgUwwuxKNlLClROGc2XnzUg69VBnw+r3GSXpKiKRPiI5hH1tRby4dYAATLwsRrsOTu0YbI726jD5BxkZveRW8FECj7gHAx2ijGJhYkeeatscImFmqQYqS07S5X-k5X8ylXHSGUQyZxvjTDuPIp4shlCExoCAA)
 
 This is phenomenal code to define a schema and infer a type from it.
 It's very strong because it enables us to just write simple
@@ -418,4 +417,4 @@ I hope that you find time & energy to read whole article with a clear and open m
 Try to think about the syntax which you may use in your codebase on the daily basis
 and be sceptical about new *fancy* stuff, which enforces you to do extra compilation to make the code work...
 
-** If you enjoyed reading the article don’t forget to like it to tell me if it makes sense to continue. **
+**If you enjoyed reading the article don’t forget to like it to tell me if it makes sense to continue.**

@@ -22,7 +22,6 @@ export type SchemaObject = {
   type: 'object'
   required?: boolean
   properties: Record<string, Schema>
-  requiredKeys?: string[]
 }
 
 type SchemaBoolean = {
@@ -42,22 +41,14 @@ export type Schema = SchemaArr | SchemaObject | SchemaString | SchemaNumber | Sc
 
 type NiceMerge<T, U, T0 = T & U, T1 = { [K in keyof T0]: T0[K] }> = T1
 
-type MakeOptional<T, Required extends boolean> = Required extends true ? T | undefined : T
+type MakeOptional<T, Required extends boolean> = Required extends true ? T : T | undefined 
 
 export type InferSchemaType<T extends Schema> = T extends {
   type: 'object'
   properties: infer U
-  requiredKeys?: any
 }
-  ? T['requiredKeys'] extends string[]
-    ? NiceMerge<
-        // @ts-expect-error
-        { [K in keyof Omit<U, T['requiredKeys'][number]>]?: InferSchemaType<U[K]> },
-        // @ts-expect-error
-        { [K in T['requiredKeys'][number]]: InferSchemaType<U[K]> }
-      >
-    : // @ts-expect-error
-      { [K in keyof U]: InferSchemaType<U[K]> }
+  ? // @ts-expect-error
+  { [K in keyof U]: InferSchemaType<U[K]> }
   : T extends { type: 'array'; items: any }
   ? // @ts-expect-error
     MakeOptional<InferSchemaType<T['items']>[], T['required']>
@@ -75,10 +66,34 @@ export type InferSchemaType<T extends Schema> = T extends {
 
 
 // ------------------------------------------------------------
+// ------------------ helper schema builders ------------------
+// ------------------------------------------------------------
+const stringType = () => ({
+  type: 'string' as const,
+  required: false as const
+})
+
+const nonNullable = <T extends { required: any }>(a: T) => ({
+  ...a,
+  required: true as const
+}) as NiceMerge<Omit<T, 'required'>, { required: true }>
+
+const objectType = <T,>(a: T) => ({
+  type: 'object' as const,
+  properties: a,
+  required: false as const,
+})
+
+// ------------------------------------------------------------
 // ---------------------- define schema  ----------------------
 // ------------------------------------------------------------
 
-const mySchema = {
+const mySchema = nonNullable(objectType({
+  id: nonNullable(stringType()),
+  name: stringType()
+}))
+
+const mySchemaRaw = {
   type: 'object' as const,
   properties: {
     key1: {
@@ -90,12 +105,12 @@ const mySchema = {
       required: false as const,
     },
   },
-  requiredKeys: ['key1' as const, 'key2' as const],
-  required: false,
+  required: false as const,
 }
 
+type SchemaType1 = InferSchemaType<typeof mySchema>
+type SchemaType2 = InferSchemaType<typeof mySchemaRaw>
 
-type MySchemaType = InferSchemaType<typeof mySchema>
 
 
 // ------------------------------------------------------------
