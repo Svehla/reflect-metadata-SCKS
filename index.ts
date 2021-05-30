@@ -93,6 +93,7 @@ const mySchema = nonNullable(objectType({
   name: stringType()
 }))
 
+
 const mySchemaRaw = {
   type: 'object' as const,
   properties: {
@@ -108,9 +109,10 @@ const mySchemaRaw = {
   required: false as const,
 }
 
+
+
 type SchemaType1 = InferSchemaType<typeof mySchema>
 type SchemaType2 = InferSchemaType<typeof mySchemaRaw>
-
 
 
 // ------------------------------------------------------------
