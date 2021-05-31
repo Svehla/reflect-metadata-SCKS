@@ -198,6 +198,8 @@ Our target is to have SSOT which describes our data types and give us
 - Option to have runtime Javascript validations
 - Type-safety
 - Good documentation
+- Enable us to use standard Javascript tooling
+- Enable us to generate the schema in the runtime
 
 ------------------------------------------------------------------------
 
