@@ -1,6 +1,7 @@
+Modern Typescript oriented libraries start to use classes and decorators in their APIs.
+Everything is awesome until libraries start to use reflect-metadata API which enforce you to define business logic in the static types which are magically reflected into your runtime code.
 
 ## TLDR:
-
 
 Don't vendor lock yourself with unsupported experimental syntax and
 don't use `reflect-metadata` which forces you to pre-process your runtime code.
@@ -22,23 +23,25 @@ const userModel = model({
 ```typescript
 @Model()
 class userModel 
+  /* decorators are nice syntax sugar ^^ */
   @Field()
-  id: string
+  id: string /* problem is that business logic is coded in typescript type here */
 
+  /* decorators are nice syntax sugar ^^ */
   @Field()
-  name: string
+  name: string /* problem is that business logic is coded in typescript type here */
 }
 ```
 
 [Check full working example of the good code in the Typescript playground](https://www.typescriptlang.org/play?target=6&module=6#code/PTAEFpK6dv4YmBYAUCCSqgCIEMAXPUAgJzwDsBnAMwHtSBbQgSzutAFcCWAbKzFihoMQseImQ0AUwAeABwYFQAY3ZVlzeQFEKZFtIEBeUAB4A0tICeoOQWkUAJgI2kWFAOagAPqAqdGACNpUgAaUAA1cIAlaQJLGzsHZ1BXdy9ffyCQmIiAPgAKNFBQGgoALlACvEqAbQTwiIBdAEpQIzzQWtj461ym0OLQOkCAK0rYtVJHCz7IvLQ2jtAAeTHpFQIAOhpSOkZdfUMCtdGN7YcjqgKR0ZatrQKy0DwBSisWttfQSYYZnoaP3yaBB6DAkghkNgInBUMgJCs8mk4G4fAEgjhMIxcJxQhkCiUCKRoAAyioABbSZgAQVIpHaoAA3kMCIjpJUAOR4Ol4KwcoakaQAR04LEFjgA-JVAnQ6LxpJQhix7IwqJUyZTmGgAL6guSKUjKVnEjVUvCnc4M5moErG9mgDm3c78m2gQUisXSSXS2XyxWu+R7JGGgxqn4bP6mNKecKm5gLVC61BoO2kilmgBCvoVFCtLLZnJlcpzLpK7tF4qloCLfooOpTbLTmrwJP0njzrrtnOjHlLbuFFa9VZrOfrqFTcbwADkAsF6SZrbaCw6snO++XPd7q9n-Un8QajY3JwzJ7T6b5JxbNj4m2bW252xf08wZ9lz7fmFni-6G8SpywVGkABZEIPGkUwABVwgAVXCCCAAYGQg0AADJQFg0AIIARitLpzFAdxQAAa2sOgaEw+CmkqBD6iaUBtU6ExsNBVMgLwEiVnkHh2DwXhIJiAdN1sWR7CcAQR0oRjww9cVhNElIyE4aRQAlTDQGom9OCcaQaHcL1QD1AlDSJZSAEkKBoEJJwgtlILk5IBEnKTkKSMSmXzJFOSdTY+0DOhgx4QxKncSz6WgscSlUjAAAECCocB9XOBK6QYIZGTwgjcxIqwyPQqjQHM0LrNs6DaM6JMSg01yUnSrsHW5cg+QAbgIlUw3eeihiisBYvixLNmSvZSCGEo2I4ri2AoXjTEKqznzwGykUg2oOWVKkqA5Jo8lqAZMJWjdxU2hNKrU6qBFq5cOQkigOU611utAXqEoUJKQiGkbQDG6ROO4qa+OuuD9sEw6tqGKqRIcpkTO7NtezuyLQBiuLnqRAa3tS11RvY76Jp4vie0BjkDq9I6wdOiG3IuzyV1nEJboqlTEZ65H+oIQaMZKLHxt+6bVxyPaieBknQddSoKGkAA3EJQRlsFsVxBX4CxCFQEpXhg1AUYqHYatRV4RwQgEKFlcV02ldQNRqGUHtFuUkwCiWToCkXaGHR7W7vktjRBldYnHEqGheKoZTPfUAgdRaUEveUCh2BnXheDwQJ5QZOyzqhv3Kg6hjqmolpKn-QCQNIMDTBWRhlX4h0-Y5PJwnSzOSFIJT6MYp2Xa2Tu8B9sshf9puW9Dq2I6jsPhnWTZbdTqDChqTDHaqF26sdCeCA9gRo570A-IC0Ms63xvA-4EON7Dn3tUj5M5bNm+UGvuFQAN3TxdSeaShxE3b9v0erdARgrGPCYWOFB46J2TtIG4q9bbOyVP3YBoCk7ygKDbNkDsWhbymowe0KCkQOwjpfWWaBo5-wAfNaIeAADuHYlzUxXmcHyLxT5Wy3jvEIgUwwuxKNlLClROGc2XnzUg69VBnw+r3GSXpKiKRPiI5hH1tRby4dYAATLwsRrsOTu0YbI726jD5BxkZveRW8FECj7gHAx2ijGJhYkeeatscImFmqQYqS07S5X-k5X8ylXHSGUQyZxvjTDuPIp4shlCExoCAA)
 
-[Or whole Github Repo](https://github.com/Svehla/reflex-metadata-SCKS/blob/master/index.ts)
+[Or whole Github Repo](https://github.com/Svehla/reflect-metadata-SCKS/blob/master/index.ts)
 
 ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hd56uijwwrw0lz8ez21i.png)
 
 ## And... what is `reflect-metadata`?
 
-First of all we need to know [Typescript decorators API](https://www.typescriptlang.org/docs/handbook/decorators.html).
+Before we dig deeper to reflect-metadata we need to understand what are decorators [Typescript decorators API](https://www.typescriptlang.org/docs/handbook/decorators.html).
 
 ### Decorators
 
@@ -314,7 +317,7 @@ Or we can create builder util functions which build JSON with the nicer API.
 
 [You can check full source code here](https://www.typescriptlang.org/play?target=6&module=6#code/PTAEFpK6dv4YmBYAUCCSqgCIEMAXPUAgJzwDsBnAMwHtSBbQgSzutAFcCWAbKzFihoMQseImQ0AUwAeABwYFQAY3ZVlzeQFEKZFtIEBeUAB4A0tICeoOQWkUAJgI2kWFAOagAPqAqdGACNpUgAaUAA1cIAlaQJLGzsHZ1BXdy9ffyCQmIiAPgAKNFBQGgoALlACvEqAbQTwiIBdAEpQIzzQWtj461ym0OLQOkCAK0rYtVJHCz7IvLQ2jtAAeTHpFQIAOhpSOkZdfUMCtdGN7YcjqgKR0ZatrQKy0DwBSisWttfQSYYZnoaP3yaBB6DAkghkNgInBUMgJCs8mk4G4fAEgjhMIxcJxQhkCiUCKRoAAyioABbSZgAQVIpHaoAA3kMCIjpJUAOR4Ol4KwcoakaQAR04LEFjgA-JVAnQ6LxpJQhix7IwqJUyZTmGgAL6guSKUjKVnEjVUvCnc4M5moErG9mgDm3c78m2gQUisXSSXS2XyxWu+R7JGGgxqn4bP6mNKecKm5gLVC61BoO2kilmgBCvoVFCtLLZnJlcpzLpK7tF4qloCLfooOpTbLTmrwJP0njzrrtnOjHlLbuFFa9VZrOfrqFTcbwADkAsF6SZrbaCw6snO++XPd7q9n-Un8QajY3JwzJ7T6b5JxbNj4m2bW252xf08wZ9lz7fmFni-6G8SpywVGkABZEIPGkUwABVwgAVXCCCAAYGQg0AADJQFg0AIIARitLpzFAdxQAAa2sOgaEw+CmkqBD6iaUBtU6ExsNBVMgLwEiVnkHh2DwXhIJiAdN1sWR7CcAQR0oRjww9cVhNElIyE4aRQAlTDQGom9OCcaQaHcL1QD1AlDSJZSAEkKBoEJJwgtlILk5IBEnKTkKSMSmXzJFOSdTY+0DOhgx4QxKncSz6WgscSlUjAAAECCocB9XOBK6QYIZGTwgjcxIqwyPQqjQHM0LrNs6DaM6JMSg01yUnSrsHW5cg+QAbgIlUw3eeihiisBYvixLNmSvZSCGEo2I4ri2AoXjTEKqznzwGykUg2oOWVKkqA5Jo8lqAZMJWjdxU2hNKrU6qBFq5cOQkigOU611utAXqEoUJKQiGkbQDG6ROO4qa+OuuD9sEw6tqGKqRIcpkTO7NtezuyLQBiuLnqRAa3tS11RvY76Jp4vie0BjkDq9I6wdOiG3IuzyV1nEJboqlTEZ65H+oIQaMZKLHxt+6bVxyPaieBknQddSoKGkAA3EJQRlsFsVxBX4CxCFQEpXhg1AUYqHYatRV4RwQgEKFlcV02ldQNRqGUHtFuUkwCiWToCkXaGHR7W7vktjRBldYnHEqGheKoZTPfUAgdRaUEveUCh2BnXheDwQJ5QZOyzqhv3Kg6hjqmolpKn-QCQNIMDTBWRhlX4h0-Y5PJwnSzOSFIJT6MYp2Xa2Tu8B9sshf9puW9Dq2I6jsPhnWTZbdTqDChqTDHaqF26sdCeCA9gRo570A-IC0Ms63xvA-4EON7Dn3tUj5M5bNm+UGvuFQAN3TxdSeaShxE3b9v0erdARgrGPCYWOFB46J2TtIG4q9bbOyVP3YBoCk7ygKDbNkDsWhbymowe0KCkQOwjpfWWaBo5-wAfNaIeAADuHYlzUxXmcHyLxT5Wy3jvEIgUwwuxKNlLClROGc2XnzUg69VBnw+r3GSXpKiKRPiI5hH1tRby4dYAATLwsRrsOTu0YbI726jD5BxkZveRW8FECj7gHAx2ijGJhYkeeatscImFmqQYqS07S5X-k5X8ylXHSGUQyZxvjTDuPIp4shlCExoCAA)
 
-[Or in the Github Repo](https://github.com/Svehla/reflex-metadata-SCKS/blob/master/index.ts)
+[Or in the Github Repo](https://github.com/Svehla/reflect-metadata-SCKS/blob/master/index.ts)
 
 This is phenomenal code to define a schema and infer a type from it.
 It's very strong because it enables us to just write simple raw Javascript and 100% of static types are inferred via a few generics and functions.
@@ -328,7 +331,7 @@ Thanks to omitting experimental Typescript API and returning into good old Javas
 Even if we want to have runtime-validations, it's super easy to write a runtime validator on top of this schema definition.
 
 If you're more interested in how to write validation from schema you can check the source code on my Github
-https://github.com/Svehla/reflex-metadata-SCKS/blob/master/index.ts
+https://github.com/Svehla/reflect-metadata-SCKS/blob/master/index.ts
 
 ### Use High-order-functions vs Decorators API
 
