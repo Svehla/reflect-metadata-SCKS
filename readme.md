@@ -37,7 +37,7 @@ class userModel
 
 [Or whole Github Repo](https://github.com/Svehla/reflect-metadata-SCKS/blob/master/index.ts)
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/hd56uijwwrw0lz8ez21i.png)
+![Alt Text](https://raw.githubusercontent.com/Svehla/reflect-metadata-SCKS/master/schema-preview.png)
 
 ## And... what is `reflect-metadata`?
 
@@ -212,6 +212,7 @@ So we have explained why using `reflect-metadata` suc*s...so what should we use 
 Thanks to Typescript generics we're able to write data types as a Javascript function composition or just simple `hash-map`/`object`.
 Then we can Infer the data types. Thanks to that our code is pure Javascript, we're able to be more flexible and generate data types on the fly and not be fixed.
 
+
 ### JSON Schema vs Class-based schema
 
 In the previous examples we used class to define the schema, now we'll use a simple Javascript hashmap.
@@ -308,12 +309,12 @@ This generic is kinda more complicated but if we look at the result we can see t
 type MySchemaType = InferSchemaType<typeof mySchema>
 ```
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/u0ba0xpc62nphgbd0u29.png)
+![Alt Text](https://raw.githubusercontent.com/Svehla/reflect-metadata-SCKS/master/infer-schema.png)
 
 
 Or we can create builder util functions which build JSON with the nicer API.
 
-![Alt Text](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/z34pa7syb1nj1k3h1w2r.png)
+![Alt Text](https://raw.githubusercontent.com/Svehla/reflect-metadata-SCKS/master/builder-functions.png)
 
 [You can check full source code here](https://www.typescriptlang.org/play?target=6&module=6#code/PTAEFpK6dv4YmBYAUCCSqgCIEMAXPUAgJzwDsBnAMwHtSBbQgSzutAFcCWAbKzFihoMQseImQ0AUwAeABwYFQAY3ZVlzeQFEKZFtIEBeUAB4A0tICeoOQWkUAJgI2kWFAOagAPqAqdGACNpUgAaUAA1cIAlaQJLGzsHZ1BXdy9ffyCQmIiAPgAKNFBQGgoALlACvEqAbQTwiIBdAEpQIzzQWtj461ym0OLQOkCAK0rYtVJHCz7IvLQ2jtAAeTHpFQIAOhpSOkZdfUMCtdGN7YcjqgKR0ZatrQKy0DwBSisWttfQSYYZnoaP3yaBB6DAkghkNgInBUMgJCs8mk4G4fAEgjhMIxcJxQhkCiUCKRoAAyioABbSZgAQVIpHaoAA3kMCIjpJUAOR4Ol4KwcoakaQAR04LEFjgA-JVAnQ6LxpJQhix7IwqJUyZTmGgAL6guSKUjKVnEjVUvCnc4M5moErG9mgDm3c78m2gQUisXSSXS2XyxWu+R7JGGgxqn4bP6mNKecKm5gLVC61BoO2kilmgBCvoVFCtLLZnJlcpzLpK7tF4qloCLfooOpTbLTmrwJP0njzrrtnOjHlLbuFFa9VZrOfrqFTcbwADkAsF6SZrbaCw6snO++XPd7q9n-Un8QajY3JwzJ7T6b5JxbNj4m2bW252xf08wZ9lz7fmFni-6G8SpywVGkABZEIPGkUwABVwgAVXCCCAAYGQg0AADJQFg0AIIARitLpzFAdxQAAa2sOgaEw+CmkqBD6iaUBtU6ExsNBVMgLwEiVnkHh2DwXhIJiAdN1sWR7CcAQR0oRjww9cVhNElIyE4aRQAlTDQGom9OCcaQaHcL1QD1AlDSJZSAEkKBoEJJwgtlILk5IBEnKTkKSMSmXzJFOSdTY+0DOhgx4QxKncSz6WgscSlUjAAAECCocB9XOBK6QYIZGTwgjcxIqwyPQqjQHM0LrNs6DaM6JMSg01yUnSrsHW5cg+QAbgIlUw3eeihiisBYvixLNmSvZSCGEo2I4ri2AoXjTEKqznzwGykUg2oOWVKkqA5Jo8lqAZMJWjdxU2hNKrU6qBFq5cOQkigOU611utAXqEoUJKQiGkbQDG6ROO4qa+OuuD9sEw6tqGKqRIcpkTO7NtezuyLQBiuLnqRAa3tS11RvY76Jp4vie0BjkDq9I6wdOiG3IuzyV1nEJboqlTEZ65H+oIQaMZKLHxt+6bVxyPaieBknQddSoKGkAA3EJQRlsFsVxBX4CxCFQEpXhg1AUYqHYatRV4RwQgEKFlcV02ldQNRqGUHtFuUkwCiWToCkXaGHR7W7vktjRBldYnHEqGheKoZTPfUAgdRaUEveUCh2BnXheDwQJ5QZOyzqhv3Kg6hjqmolpKn-QCQNIMDTBWRhlX4h0-Y5PJwnSzOSFIJT6MYp2Xa2Tu8B9sshf9puW9Dq2I6jsPhnWTZbdTqDChqTDHaqF26sdCeCA9gRo570A-IC0Ms63xvA-4EON7Dn3tUj5M5bNm+UGvuFQAN3TxdSeaShxE3b9v0erdARgrGPCYWOFB46J2TtIG4q9bbOyVP3YBoCk7ygKDbNkDsWhbymowe0KCkQOwjpfWWaBo5-wAfNaIeAADuHYlzUxXmcHyLxT5Wy3jvEIgUwwuxKNlLClROGc2XnzUg69VBnw+r3GSXpKiKRPiI5hH1tRby4dYAATLwsRrsOTu0YbI726jD5BxkZveRW8FECj7gHAx2ijGJhYkeeatscImFmqQYqS07S5X-k5X8ylXHSGUQyZxvjTDuPIp4shlCExoCAA)
 
@@ -400,7 +401,7 @@ I picked two libraries which uses the same philosophy as we described in this ar
 
 If you look for the API:
 
-![typed-env-parser API](https://github.com/Svehla/typed-env-parser/blob/main/example/static/ts-preview-1.png?raw=true)
+![typed-env-parser API](https://raw.githubusercontent.com/Svehla/reflect-metadata-SCKS/master/typed-env-parser.png)
 
 You can find that the definition of users does not include Typescript and the API of the function is pure Javascript.
 Thanks to the type inference we get all the features of a strongly typed system in vanilla js implementation.
